@@ -70,17 +70,18 @@ void LCD_MoveCursor(unsigned char x, unsigned char y){
 }
 
 void LCD_Init(void){
-  //Initialization LED
-  TRISDbits.TRISD0 = TRISx_OUTPUT;
-  LATDbits.LATD0 = 0;
-  // Set Tristate Registers
+  //Set Analog State Off
   ANSELEbits.ANSE7 = 0;
+  
+  // Set Tristate Registers
+  
   TRISCbits.TRISC4 = TRISx_OUTPUT;// LCD_RS
   TRISCbits.TRISC2 = TRISx_OUTPUT;// LCD_E
   TRISEbits.TRISE7 = TRISx_OUTPUT;// LCD_D7
   TRISEbits.TRISE5 = TRISx_OUTPUT;// LCD_D6
   TRISEbits.TRISE3 = TRISx_OUTPUT;// LCD_D5
   TRISEbits.TRISE1 = TRISx_OUTPUT;// LCD_D4
+  
   //15mS Wait Required after Power On (delayUs takes maximum 5mS or 5000uS)
   delayUs(5000);delayUs(5000);delayUs(5000);
   
@@ -199,44 +200,4 @@ void LCD_Init(void){
   delayUs(1);
   LCD_E = 0;
   delayUs(50);
-  LATDbits.LATD0 = 1;
-}
-
-void LCD_OtherTest(){
-  LCD_RS = 1;
-  /*  Write First 4-bits of Word  */
-  LCD_D7 = 0;LCD_D6 = 1;LCD_D5 = 0;LCD_D4 = 0;
-  //Enable
-  LCD_E = 1;
-  //Delay
-  delayUs(10);
-  //Disable
-  LCD_E = 0;
-  delayUs(50);
-  /*  Write Last 4-bits of Word  */
-  LCD_RS = 1;
-  LCD_D7 = 0;LCD_D6 = 0;LCD_D5 = 0;LCD_D4 = 1;
-  //Enable
-  LCD_E = 1;
-  //Delay
-  delayUs(50);
-  //Disable
-  LCD_E = 0;
-  int x = 0;
-  for(x = 0; x < 1000; x++) delayUs(100);
-}
-void LCD_OtherTest2(){
-  LCD_PrintChar('A');
-}
-void LCD_Test(){
-    int i = 0;
-    LCD_Clear();
-    LCD_PrintChar('c');
-    for(i = 0; i < 1000; i++) delayUs(1000);
-    LCD_Clear();
-    LCD_PrintString("Hello!");
-    LCD_MoveCursor(1, 2);
-    for(i = 0; i < 1000; i++) delayUs(1000);
-    LCD_PrintString("Hello!");
-    for(i = 0; i < 1000; i++) delayUs(1000);
 }

@@ -18,3 +18,4 @@ void delayUs(unsigned int delay){
   while(IFS0bits.T2IF == 0){};// Wait Loop
   IFS0bits.T2IF = 0;
 }
+

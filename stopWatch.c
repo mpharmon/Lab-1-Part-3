@@ -6,7 +6,7 @@ volatile unsigned int seconds = 0;
 
 void StopWatch_Init(){
   TMR1 = 0;
-  PR1 = 15000;
+  PR1 = 15200;
   T1CONbits.TCKPS = 3;//Prescaler of 256
   IFS0bits.T1IF = 0;// Flag Down
   IEC0bits.T1IE = 1;// Interrupt Enabled
@@ -20,7 +20,7 @@ void StopWatch_Reset(){
 }
 
 char* getTimeString(){
-  unsigned int hundredths = TMR1 / 150;
+  unsigned int hundredths = TMR1 / 152;
   char retString[9];
   sprintf(retString,"%02d:%02d:%02d",minutes,seconds,hundredths);
   return retString;

@@ -1,3 +1,18 @@
+/*  
+ *  Class: ECE372a
+ * 
+ *  Group: 209
+ *
+ *  Lab: 1 Part 3
+ * 
+ *  File: main.c
+ * 
+ *  Member: Michael Harmon (Software)
+ *          Abdul Rana (Hardware)
+ *          James Beulke (System Integration)
+ *          Ali Hassan (Quality Control)
+ */
+
 #include <xc.h>
 #include <sys/attribs.h>
 #include "leds.h"
@@ -65,7 +80,6 @@ void __ISR(_CHANGE_NOTICE_VECTOR, IPL7SRS) _CNInterrupt(void){
         state = stop;
         T1CONbits.ON = 0;// Stop Timer
       }else if(state == stop){
-        LCD_Clear();
         state = start;
         T1CONbits.ON = 1;// Start Timer
       };

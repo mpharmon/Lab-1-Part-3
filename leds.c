@@ -1,9 +1,17 @@
-/*
-* File:   leds.c
-* Author: 
-*
-* Created on December 27, 2014, 1:31 PM
-*/
+/*  
+ *  Class: ECE372a
+ * 
+ *  Group: 209
+ *
+ *  Lab: 1 Part 3
+ * 
+ *  File: leds.c
+ * 
+ *  Member: Michael Harmon (Software)
+ *          Abdul Rana (Hardware)
+ *          James Beulke (System Integration)
+ *          Ali Hassan (Quality Control)
+ */
 
 #include <xc.h>
 

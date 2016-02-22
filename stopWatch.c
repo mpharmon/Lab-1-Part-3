@@ -1,3 +1,18 @@
+/*  
+ *  Class: ECE372a
+ * 
+ *  Group: 209
+ *
+ *  Lab: 1 Part 3
+ * 
+ *  File: stopWatch.c
+ * 
+ *  Member: Michael Harmon (Software)
+ *          Abdul Rana (Hardware)
+ *          James Beulke (System Integration)
+ *          Ali Hassan (Quality Control)
+ */
+
 #include <xc.h>
 #include <sys/attribs.h>
 
@@ -19,9 +34,9 @@ void StopWatch_Reset(){
   TMR1 = 0;
 }
 
-char* getTimeString(){
+const char* getTimeString(){
   unsigned int hundredths = TMR1 / 152;
-  char retString[9];
+  const char retString[9];
   sprintf(retString,"%02d:%02d:%02d",minutes,seconds,hundredths);
   return retString;
 }

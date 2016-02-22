@@ -1,14 +1,23 @@
-/* 
- * File:   timer.h
- * Authors:
+/*  
+ *  Class: ECE372a
+ * 
+ *  Group: 209
+ * 
+ *  Lab: 1 Part 3
+ * 
+ *  File: timer.h
  *
- * Created on December 30, 2014, 8:07 PM
+ *  Member: Michael Harmon (Software)
+ *          Abdul Rana (Hardware)
+ *          James Beulke (System Integration)
+ *          Ali Hassan (Quality Control)
  */
 
-#ifndef INITTIMER_H
-#define	INITTIMER_H
+#ifndef TIMER_H
+#define	TIMER_H
 
+//Delay function (in microseconds)
 void delayUs(unsigned int delay);
 
-#endif	/* INITTIMER_H */
+#endif	/* TIMER_H */
 
